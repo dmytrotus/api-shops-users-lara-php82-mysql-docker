@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DevelopmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DevelopmentController::class, 'index']);
+Route::post('/migrate-and-seed', [DevelopmentController::class, 'runMigrationsAndSeeder'])->name('run-migration-and-seed');

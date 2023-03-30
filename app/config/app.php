@@ -212,4 +212,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'SEEDED_PRODUCTS_COUNT' => env('SEEDED_PRODUCTS_COUNT', 100),
+
 ];
