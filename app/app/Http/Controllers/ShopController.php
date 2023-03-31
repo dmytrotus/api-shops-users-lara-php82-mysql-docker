@@ -40,8 +40,11 @@ class ShopController extends Controller
      */
     public function show(string $id)
     {
+        $shop = Shop::findOrFail($id);
+
         return response()->json([
-            'data' =>  Shop::findOrFail($id)
+            'data' =>  $shop,
+            'weather' => $shop->weather()
         ], 200);
     }
 

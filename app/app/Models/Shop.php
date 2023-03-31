@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Events\Shop\ShopCreatedEvent;
 use App\Events\Shop\ShopUpdatedEvent;
 use App\Events\Shop\ShopDeletedEvent;
+use App\Facades\Weather;
 
 class Shop extends Model
 {
@@ -28,4 +29,9 @@ class Shop extends Model
         'updated' => ShopUpdatedEvent::class,
         'deleted' => ShopDeletedEvent::class,
     ];
+
+    public function weather()
+    {
+        return Weather::get($this->latitude, $this->longitude);
+    }
 }
