@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -13,24 +14,24 @@ class ProductController extends Controller
     public function index()
     {
         return response()->json([
-            'count' => Product::count()
+            'data' => Product::all()
         ], 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        $product = Product::create([
+            'name' => $request->name,
+            'ean' => $request->ean,
+            'sku' => $request->sku,
+        ]);
+
+        return response()->json([
+            'data' =>  $product
+        ], 201);
     }
 
     /**
@@ -38,23 +39,27 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return response()->json([
+            'data' =>  Product::findOrFail($id)
+        ], 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductRequest $request, string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->update([
+            'name' => $request->name,
+            'ean' => $request->ean,
+            'sku' => $request->sku,
+        ]);
+
+        return response()->json([
+            'message' => 'updated',
+            'data' =>  $product
+        ], 200);
     }
 
     /**
@@ -62,6 +67,11 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Product::findOrFail($id)->delete();
+
+        ///can be used 204 code as well
+        return response()->json([
+            'message' => 'deleted',
+        ], 200);
     }
 }
