@@ -18,7 +18,8 @@ class ProductSeeder extends Seeder
         // Remove Dispatcher
         Product::unsetEventDispatcher();
 
-        if (config('app.SEEDED_PRODUCTS_COUNT') > 100) {
+        if (config('app.SEEDED_PRODUCTS_COUNT') > 100 &&
+            env('APP_ENV') != 'testing') {
             Product::factory(config('app.SEEDED_PRODUCTS_COUNT'))->create();
         } else {
             Product::factory(100)->create();
