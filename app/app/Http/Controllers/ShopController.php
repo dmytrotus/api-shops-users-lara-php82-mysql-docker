@@ -59,7 +59,7 @@ class ShopController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'updated',
+            'message' => __('app.shop_updated'),
             'data' =>  $shop
         ], 200);
     }
@@ -73,7 +73,7 @@ class ShopController extends Controller
 
         ///can be used 204 code as well
         return response()->json([
-            'message' => 'deleted',
+            'message' => __('app.shop_deleted'),
         ], 200);
     }
 

@@ -57,7 +57,7 @@ class ProductController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'updated',
+            'message' => __('app.product_updated'),
             'data' =>  $product
         ], 200);
     }
@@ -71,7 +71,7 @@ class ProductController extends Controller
 
         ///can be used 204 code as well
         return response()->json([
-            'message' => 'deleted',
+            'message' => __('app.product_deleted'),
         ], 200);
     }
 }
