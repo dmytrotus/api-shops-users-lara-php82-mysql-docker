@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Events\ShopDeletedEvent;
+use App\Events\Shop\ShopCreatedEvent;
+use App\Events\Shop\ShopUpdatedEvent;
+use App\Events\Shop\ShopDeletedEvent;
 
 class Shop extends Model
 {
@@ -22,7 +24,8 @@ class Shop extends Model
     }
 
     protected $dispatchesEvents = [
+        'created' => ShopCreatedEvent::class,
+        'updated' => ShopUpdatedEvent::class,
         'deleted' => ShopDeletedEvent::class,
-
     ];
 }

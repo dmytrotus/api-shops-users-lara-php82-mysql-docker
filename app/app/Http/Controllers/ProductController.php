@@ -27,6 +27,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'ean' => $request->ean,
             'sku' => $request->sku,
+            'shop_id' => $request->shop_id
         ]);
 
         return response()->json([
@@ -54,6 +55,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'ean' => $request->ean,
             'sku' => $request->sku,
+            'shop_id' => $request->shop_id
         ]);
 
         return response()->json([

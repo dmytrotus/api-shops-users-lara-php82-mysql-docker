@@ -17,6 +17,7 @@ class ProductRequest extends FormRequest
             'name' => 'required',
             'ean' => 'required|numeric',
             'sku' => 'required|numeric',
+            'shop_id' => 'required|numeric',
         ];
     }
 }
