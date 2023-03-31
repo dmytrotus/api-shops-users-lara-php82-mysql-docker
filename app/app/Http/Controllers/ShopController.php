@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Http\Requests\ShopRequest;
 
 class ShopController extends Controller
 {
@@ -13,24 +14,25 @@ class ShopController extends Controller
     public function index()
     {
         return response()->json([
-            'count' => Shop::count()
+            'data' => Shop::all()
         ], 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ShopRequest $request)
     {
-        //
+        $shop = Shop::create([
+            'name' => $request->name,
+            'address' => $request->address,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
+
+        return response()->json([
+            'data' =>  $shop
+        ], 201);
     }
 
     /**
@@ -38,23 +40,28 @@ class ShopController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return response()->json([
+            'data' =>  Shop::findOrFail($id)
+        ], 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ShopRequest $request, string $id)
     {
-        //
+        $shop = Shop::findOrFail($id);
+        $shop->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
+
+        return response()->json([
+            'message' => 'updated',
+            'data' =>  $shop
+        ], 200);
     }
 
     /**
@@ -62,6 +69,11 @@ class ShopController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Shop::findOrFail($id)->delete();
+
+        ///can be used 204 code as well
+        return response()->json([
+            'message' => 'deleted',
+        ], 200);
     }
 }

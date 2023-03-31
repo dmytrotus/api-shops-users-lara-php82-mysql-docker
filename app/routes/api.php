@@ -21,5 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/shop', [ShopController::class, 'index']);
+Route::get('/shop/all', [ShopController::class, 'index']);
+Route::get('/shop/show/{id}', [ShopController::class, 'show']);
+Route::post('/shop/store', [ShopController::class, 'store']);
+Route::put('/shop/update/{id}', [ShopController::class, 'update']);
+Route::delete('/shop/delete/{id}', [ShopController::class, 'destroy']);
+
 Route::get('/product', [ProductController::class, 'index']);
