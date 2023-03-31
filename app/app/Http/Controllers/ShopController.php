@@ -76,4 +76,13 @@ class ShopController extends Controller
             'message' => 'deleted',
         ], 200);
     }
+
+    public function showProducts(string $id)
+    {
+        $products = Shop::findOrFail($id)->products;
+
+        return response()->json([
+            'data' =>  $products
+        ], 200);
+    }
 }

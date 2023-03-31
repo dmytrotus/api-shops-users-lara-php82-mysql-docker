@@ -213,5 +213,6 @@ return [
     ])->toArray(),
 
     'SEEDED_PRODUCTS_COUNT' => env('SEEDED_PRODUCTS_COUNT', 100),
+    'SEEDED_SHOPS_COUNT' => env('SEEDED_SHOPS_COUNT', 24),
 
 ];

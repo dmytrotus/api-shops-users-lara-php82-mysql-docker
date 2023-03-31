@@ -16,10 +16,13 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $shopsCount = config('app.SEEDED_SHOPS_COUNT');
+
         return [
             'name' => fake()->word(),
             'ean' => fake()->ean13(),
             'sku' => fake()->ean8(),
+            'shop_id' => rand(1, $shopsCount)
         ];
     }
 }
