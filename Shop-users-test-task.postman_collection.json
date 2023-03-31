@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "73049888-1d4f-4e47-acbe-b66d7adcd5e0",
+		"name": "Shop-users-test-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6566082"
+	},
+	"item": [
+		{
+			"name": "api/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|oBSD7ZW00GSaZkDKiri9hrNXTSkyuNrZwEK0T5eJ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Bearer",
+						"value": "0473da123ca3c3163ca12e76e11f8f867358566911bb22a556a736fde1e5b5fe",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7774/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7774/api/shop/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"shop",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Shopname",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Some address",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "-34.3435342",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "32.4543543",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7774/api/shop/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"shop",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop read",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7774/api/shop/show/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"shop",
+						"show",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop Show All Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7774/api/shop/show/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"shop",
+						"show",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Shop Name",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "New Shop Address",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "-1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7774/api/shop/update/25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"shop",
+						"update",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7774/api/shop/delete/29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"shop",
+						"delete",
+						"29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7774/api/product/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"product",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Product Name",
+							"type": "text"
+						},
+						{
+							"key": "ean",
+							"value": "11111111111111111",
+							"type": "text"
+						},
+						{
+							"key": "sku",
+							"value": "11111111111111111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7774/api/product/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"product",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product read",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7774/api/product/show/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"product",
+						"show",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Product Name",
+							"type": "text"
+						},
+						{
+							"key": "ean",
+							"value": "2222222222222",
+							"type": "text"
+						},
+						{
+							"key": "sku",
+							"value": "2222222222222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7774/api/product/update/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"product",
+						"update",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7774/api/product/delete/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7774",
+					"path": [
+						"api",
+						"product",
+						"delete",
+						"101"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
